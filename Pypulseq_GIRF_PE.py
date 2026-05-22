@@ -155,6 +155,7 @@ def ref(seq, system, slice_offsets, directions, log_file, batch_index, save_flag
 
         #SS
         seq.add_block(rf, gz)
+        seq.add_block(pp.make_delay(1e-3)) # stimu
         # Rephase and PE gradients
         seq.add_block(gzReph, gxPE, gyPE)
         # ADC, no triangles
@@ -230,6 +231,7 @@ def triangle(seq, system, triangular_amplitude_mT_per_m, slice_offsets, directio
 
         #SS
         seq.add_block(rf, gz)
+        seq.add_block(pp.make_delay(1e-3))  # stimu
         # Rephase, PE gradients 
         seq.add_block(gzReph, gxPE, gyPE)
         # ADC with triangular gradient
